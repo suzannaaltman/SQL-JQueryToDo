@@ -1,28 +1,30 @@
 $(function(){
-  $.get("/toDo").done(function(response){
-    addTask(response);
-    console.log(response);
-  });
 
-  $("#addTask").on("submit", function(event){
+  addTask();
+
+  $("body").on("click", "#addTask", function(){
+    var value = $("#taskField").serializeArray()[0].value;
+    console.log(value);
     event.preventDefault();
-    console.log("addTask clicked");
-    $.post("/toDo/", {"item": response}).done(function(response){
+    $.post("/toDo/", {"item": value}).done(function(response){
       console.log('response.item:', response);
+      addTask();
     });
-    addTask();
   })
 
 
-
-  function addTask(response){
-    $.each(response, function(index) {
-        $("#itemHolder").append("<div class=\"well\"><input type=\"checkbox\" class=\"done\" value=\"checked\" />" + response[index].item + "</div><br />");
-        console.log(response[index].completed);
-        if((response[index].completed).toString() === "false"){
-          $( "div.well" ).addClass( "notDone");
-        }
+  function addTask(){
+    $.get("/toDo").done(function(response){
+      $.each(response, function(index) {
+          $("#itemHolder").append("<div class=\"well\"><input type=\"checkbox\" class=\"check\" />" + response[index].item + "</div><br />");
+          console.log(response[index].completed);
+          if(Boolean(response[index].completed) === true){
+            $( "div.well" ).addClass( "notDone");
+          }
+      });
+      console.log('get called', response);
     });
+
   };
 
 
