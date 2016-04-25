@@ -19,6 +19,10 @@ div.well.notDone {
   background-color: lightblue;
 }
 
+input.done{
+  margin-right: 20px;
+}
+
 #taskField {
   width: 100%;
   margin-bottom: 10px;
