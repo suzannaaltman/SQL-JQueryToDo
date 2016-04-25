@@ -14,7 +14,7 @@ div.well{
   color: lightgray;
 }
 
-div.well.notDone {
+div.well.done {
   color: black;
   background-color: lightblue;
 }
