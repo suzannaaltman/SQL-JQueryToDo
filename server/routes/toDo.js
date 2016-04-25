@@ -76,24 +76,25 @@ router.post('/', function(request, response){
 //   });
 // });
 
-// router.delete('/:id', function(request, response){
-//   var id = request.params.id;
-//   pg.connect(connectionString, function(err, client, done){
-//     var query = client.query('DELETE toDo WHERE id = ' + id + ';');
-//
-//     query.on('end', function(){
-//       done();
-//       response.sendStatus(200);
-//     });
-//
-//     query.on('error', function(err){
-//       console.log(err);
-//       done();
-//       console.log('deleted item id:', id);
-//       response.sendStatus(500);
-//     });
-//   });
-// });
+router.delete('/:id', function(request, response){
+  console.log(request.params.id);
+  var id = request.params.id;
+  pg.connect(connectionString, function(err, client, done){
+    var query = client.query('DELETE FROM todo WHERE id = ' + id + ';');
+
+    query.on('end', function(){
+      done();
+      console.log('deleted item id:', id);
+      response.sendStatus(200);
+    });
+
+    query.on('error', function(err){
+      console.log(err);
+      done();
+      response.sendStatus(500);
+    });
+  });
+});
 
 
 module.exports = router;

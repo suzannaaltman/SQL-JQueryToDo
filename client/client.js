@@ -22,7 +22,7 @@ $(function(){
           console.log('boolean:', Boolean(response[index].completed));
           if(Boolean(response[index].completed) === true){
             console.log('true conditional');
-            $( "div.well" ).addClass( "done");
+            $("div.well").addClass("done");
           }
       });
       console.log('get called', response);
