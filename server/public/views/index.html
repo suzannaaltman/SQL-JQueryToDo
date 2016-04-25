@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do</title>
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/scripts/client.min.js"></script>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/views/styles.css" />
+  </head>
+  <body>
+    <h1>To Do:</h1>
+    <form action="/toDo" method="post">
+      <input type="text" placeholder="enter task" name=item id="taskField"/>
+      <br />
+      <input type="submit" value="Add" id="addTask" />
+    </form>
+    <div id="itemHolder">
+    </div>
+    <div id="completedHolder">
+    </div>
+  </body>
+</html>

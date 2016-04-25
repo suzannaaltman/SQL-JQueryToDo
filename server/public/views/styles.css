@@ -1,0 +1,26 @@
+body {
+  width: 50%;
+  margin: 100px auto;
+}
+
+form {
+  margin-bottom: 60px;
+  margin-top: 30px;
+}
+
+div.well{
+  border: 2px dashed gray;
+  background-color: darkgray;
+  color: lightgray;
+}
+
+div.well.notDone {
+  color: black;
+  background-color: lightblue;
+}
+
+#taskField {
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: courier;
+}
