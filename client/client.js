@@ -17,13 +17,17 @@ $(function(){
     $.get("/toDo").done(function(response){
       $("#itemHolder").children().remove();
       $.each(response, function(index) {
-          $("#itemHolder").append("<div class=\"well\"><input type=\"checkbox\" class=\"check\" />" + response[index].item + "</div><br />");
+        if(Boolean(response[index].completed) === true){
+          $("#completedHolder").append("<div class=\"well\">" + response[index].item + "<button class=\"deleteBtn\">Delete</button></div><br />");
           console.log('completed:', response[index].completed);
           console.log('boolean:', Boolean(response[index].completed));
-          if(Boolean(response[index].completed) === true){
-            console.log('true conditional');
-            $("div.well").addClass("done");
-          }
+          console.log('true conditional');
+
+        }else{
+          $("#itemHolder").append("<div class=\"well\">" + response[index].item + "<button class=\"completeBtn\">Completed</button></div><br />");
+        }
+
+
       });
       console.log('get called', response);
     });

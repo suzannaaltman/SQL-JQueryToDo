@@ -10,17 +10,28 @@ form {
 
 div.well{
   border: 2px dashed gray;
-  background-color: darkgray;
-  color: lightgray;
-}
-
-div.well.done {
   color: black;
   background-color: lightblue;
 }
 
 input.check{
   margin-right: 20px;
+}
+
+#completedHolder .well {
+  background-color: darkgray;
+  color: lightgray;
+}
+
+.completeBtn {
+  float: right;
+}
+
+.deleteBtn {
+  float: right;
+  color: black;
+  background-color: lightgray;
+  border: 1px solid black;
 }
 
 #taskField {
